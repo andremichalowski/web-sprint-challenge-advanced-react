@@ -139,7 +139,7 @@ Display a list of the plants from the server. This should be done in the class c
 
 #### Shopping Cart
 
-Nothing needs to be done here. You _will_ have to navigate to the cart page in your app so you can go to the checkout form for the next step.
+- [x] Nothing needs to be done here. You _will_ have to navigate to the cart page in your app so you can go to the checkout form for the next step.
 
 #### Checkout Form
 
