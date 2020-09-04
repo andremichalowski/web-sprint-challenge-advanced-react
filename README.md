@@ -31,14 +31,56 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
+   <!-- A stateful component is usually a class component that includes state as an object set in a constructor function and a return statement that exists in a render statement. A basic stateful component would look something like this: -->
+
+<!-- export default Class App extends React.Component {
+constructor() {
+super();
+this.state = {};
+}
+render() {
+return <div>Hello!</div>
+}
+} -->
 
 2. Describe the different phases of the component lifecycle.
+   <!-- A component lifecycle exists in three phases:
+
+   1. The Birth/Mounting Phase:
+      render method is invoked
+   2. Growth/Updating Phase:
+      changes to the state, props are passed, or a UI change will trigger a second render
+      a second render occurs
+   3. UnMount
+      after updates have occurred some components are required to UnMount or be destroyed -->
 
 3. Demonstrate an understanding of class component lifecycle methods.
+   <!-- The three main class component lifecycle methods are:
+
+   1. componentDidMount(): This method will be invoked during the "Mounting Phase" after the first render cycle.
+   2. componentDidUpdate(): This method will be invoked during the "Updating Phase" when a component has changed/updated.
+   3. componentWillUnmount(): This method will be invoked during the "UnMount Phase" after the component has been unmounted from the DOM. -->
 
 4. Define stateful logic.
+   <!-- Stateful logic is logic that is handling changes in a component (typically involving state). -->
 
 5. Describe how to test a React component with React Testing Library.
+   <!-- Testing a component in React with React Testing Library requires:
+
+   A. Running npm test
+
+   B. Writing a test.js document of some kind that includes tests in the following format:
+    test("Test title/expression", () => {
+      // 1. Arrange (initial requirements)
+        *render statement and deconstruction of RTL or Jest library methods*
+        ex. const { getByLabelText } = render(<ContactForm />);
+      // Act (invoke method)
+        *defining or grabbing the node (element) you need with methods*
+        ex. const firstName = getByLabelText(/first name*/i);
+      // Assert (expectations)
+        *expressing expectations of this node using methods\*
+        ex. expect(message).toBeTruthy();
+   } -->
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
