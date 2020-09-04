@@ -24,6 +24,8 @@ You will also need to build the two tests in the `CheckoutForm.test.js` file and
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
 
+- [x] Initial Commit
+
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
