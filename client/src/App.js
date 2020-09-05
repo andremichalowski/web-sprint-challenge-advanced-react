@@ -11,7 +11,7 @@ import "./App.css";
 export default function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
-  const [filter, setFilter] = useState("");
+  const [filterWord, setFilterWord] = useState("");
   const [search, setSearch ] = useState("");
   // const [listVisible, setListVisible] = useState(" visible")
 
@@ -40,7 +40,7 @@ export default function App() {
   // }
 
   const startFilter = () => {
-    setFilter(search);
+    setFilterWord(search);
   }
 
   console.log(search);
@@ -94,7 +94,7 @@ export default function App() {
         <Route 
           exact
           path="/search"
-          render={() => <FilterPlantList addToCard={addToCart} filter={filter} />}
+          render={() => <FilterPlantList addToCard={addToCart} filterWord={filterWord} />}
         />
         <Route
           path="/cart"
