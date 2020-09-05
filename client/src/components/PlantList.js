@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+// import PlantCard from './PlantCard';
+
 export default class PlantList extends Component {
   // add state with a property called "plants" - initialize as an empty array
   constructor() {
@@ -17,9 +19,9 @@ export default class PlantList extends Component {
   componentDidMount() {
     axios
       .get('http://localhost:3333/plants')
-      .then(res => {
-        console.log('PlantList Get Request:', res);
-        this.setState({plants: res.data.plantsData})
+      .then(response => {
+        console.log('PlantList Get Request:', response);
+        this.setState({plants: response.data.plantsData})
       })
       .catch(err => {
         console.log('PlantList Get Request Error', err)
@@ -28,6 +30,7 @@ export default class PlantList extends Component {
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
+  
     return (
       <main className="plant-list">
         {this.state?.plants?.map((plant) => (
