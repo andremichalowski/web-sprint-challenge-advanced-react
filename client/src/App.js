@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
 
+import "./App.css";
+
 import PlantList from "./components/PlantList";
 import ShoppingCart from "./components/ShoppingCart";
 import CheckoutForm from "./components/CheckoutForm";
 import FilterPlantList from "./components/FilterPlantList"
 
-import "./App.css";
+import { useDarkMode } from './hooks/darkMode'
 
 export default function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
   const [filterWord, setFilterWord] = useState("");
   const [search, setSearch ] = useState("");
-  // const [listVisible, setListVisible] = useState(" visible")
+  const [darkMode, setDarkMode] = useDarkMode();
 
   // add a plant to the cart
   const addToCart = (plant) => {
@@ -25,25 +27,22 @@ export default function App() {
     setCart(cart.filter((p) => p.id !== plant.id));
   };
 
+  //Search/Filter Update state
   const updateSearch = (event) => {
     setSearch(event.target.value)
   }
-
-  // const toggleListVisible = () => {
-  //   console.log('ToggleListVissible')
-  //   console.log(listVisible)
-  //   if (listVisible === ' visible') {
-  //     setListVisible(' hidden') 
-  //   } else {
-  //     setListVisible(' visible')
-  //   }
-  // }
 
   const startFilter = () => {
     setFilterWord(search);
   }
 
   console.log(search);
+
+  //Toggle darkMode
+  const toggleMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
 
   return (
     <div>
@@ -52,9 +51,10 @@ export default function App() {
           <h1>
             React Plants <span role="img" aria-label="leaf">🌿</span>
           </h1>
+
           <form 
-            className="SearchContainer" 
-            style={{"marginLeft" : "60px", "display" : "flex", "flexDirection" : "row", "justifyContent" : "space-evenly"}}>
+            className="search-container" 
+          >
             <input 
               value={search} 
               onChange={updateSearch}
@@ -68,6 +68,14 @@ export default function App() {
               </button>
             </Link>
           </form>
+
+          <div className="dark-mode__toggle">
+            <div
+                onClick={toggleMode}
+                className={darkMode ? 'toggle toggled' : 'toggle'}
+            />
+          </div>
+
           <ul className="steps">
             <li>
               <NavLink exact to="/" style={{"text-decoration" : "none"}}>
